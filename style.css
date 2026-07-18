@@ -24,8 +24,9 @@ ul {
 
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 15px;
     padding: 20px;
 }
 
@@ -34,14 +35,13 @@ header a {
     font-weight: bold;
     color: #2563eb;
 }
-header nav a:hover {
-    color: #0f172a;
-    transition: 0.2s ease;
+
+header nav a {
+    transition: color 0.2s ease;
 }
 
-
-header button:hover {
-    background-color: #334155;
+header nav a:hover {
+    color: #0f172a;
 }
 
 header nav ul {
@@ -92,4 +92,46 @@ footer {
     padding: 20px;
     font-size: 14px;
     color: #475569;
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 40px;
+    }
+
+    header nav a:hover {
+        color: #2563eb;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    section p {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    header {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 46px;
+    }
 }
