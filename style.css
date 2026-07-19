@@ -49,7 +49,7 @@ header nav ul {
     gap: 30px;
 }
 
-
+/* Loqo + hamburger düyməsi bloğu */
 .header-top {
     display: flex;
     justify-content: space-between;
@@ -90,7 +90,7 @@ header nav ul {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
-
+/* Mobildə nav gizli, "nav-open" class-ı ilə açılır */
 header nav {
     width: 100%;
     max-height: 0;
@@ -147,6 +147,75 @@ section a:hover {
     background-color: #000000;
 }
 
+/* YENİ: Sadə əlaqə formu stili - digər bölmələr kimi ortalanmış konteyner */
+#contact {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: inherit;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+    border-color: #dc2626;
+}
+
+.error-message {
+    display: none;
+    font-size: 13px;
+    color: #dc2626;
+}
+
+.error-message.show {
+    display: block;
+}
+
+#contact form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-success {
+    display: none;
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.form-success.show {
+    display: block;
+}
+
 footer {
     text-align: center;
     padding: 20px;
@@ -172,7 +241,6 @@ footer {
     section p {
         font-size: 16px;
     }
-
 
     .header-top {
         width: auto;
