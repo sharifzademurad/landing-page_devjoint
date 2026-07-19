@@ -9,29 +9,38 @@
 <body>
 
     <header>
-        <a href="#">NovaTech</a>
+    
+        <div class="header-top">
+            <a href="#">NovaTech</a>
 
+            <button class="menu-toggle" id="menuToggle" aria-label="Menyunu aç/bağla" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
 
-        <nav>
+        <nav id="mainNav">
             <ul>
-                <li><a href="#">Haqqımızda</a></li>
+                <li><a href="#hero">Haqqımızda</a></li>
                 <li><a href="#">Qalereya</a></li>
-                <li><a href="#">Əlaqə</a></li>
+                <li><a href="#contact">Əlaqə</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="hero">
         <section>
             <h1>Rəqəmsal Dünyada Sizin Güvənli Tərəfdaşınız</h1>
             <p>Biz biznesiniz üçün ən innovativ web və mobil həlləri sıfırdan hazırlayırıq.</p>
-            <a href="#">Bizimlə Əlaqə</a>
+            <a href="#contact">Bizimlə Əlaqə</a>
         </section>
     </main>
 
-    <footer>
+    <footer id="contact">
         <p>&copy; 2026 NovaTech. Bütün hüquqlar qorunur.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
