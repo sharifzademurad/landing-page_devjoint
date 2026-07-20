@@ -8,18 +8,25 @@
 </head>
 <body>
 
+    <!-- YENİ: Klaviatura ilə naviqasiya edənlər üçün "əsas məzmuna keç" linki.
+         Adətən gizlidir, yalnız Tab ilə fokuslananda görünür. -->
+    <a href="#hero" class="skip-link">Əsas məzmuna keç</a>
+
     <header>
+        <!-- Loqo və hamburger düyməsi "header-top" bloğunda -->
         <div class="header-top">
             <a href="#">NovaTech</a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Menyunu aç/bağla" aria-expanded="false">
+            <!-- YENİ: aria-controls - bu düymənin hansı elementi idarə etdiyini ekran oxuyucusuna bildirir -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Menyunu aç/bağla" aria-expanded="false" aria-controls="mainNav">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
 
-        <nav id="mainNav">
+        <!-- YENİ: aria-label - bu bloğun "əsas naviqasiya" olduğunu bildirir -->
+        <nav id="mainNav" aria-label="Əsas naviqasiya">
             <ul>
                 <li><a href="#hero">Haqqımızda</a></li>
                 <li><a href="#">Qalereya</a></li>
@@ -36,30 +43,35 @@
         </section>
     </main>
 
+    <!-- YENİ: Sadə əlaqə formu -->
     <section id="contact">
         <h2>Bizimlə Əlaqə</h2>
 
+        <!-- YENİ: aria-required - sahənin məcburi olduğunu bildirir
+             aria-describedby - inputu xəta mesajı ilə əlaqələndirir
+             role="alert" - xəta yarananda ekran oxuyucusu avtomatik oxuyur -->
         <form id="contactForm" novalidate>
             <div class="form-group">
                 <label for="name">Ad Soyad</label>
-                <input type="text" id="name" name="name">
-                <span class="error-message" id="nameError"></span>
+                <input type="text" id="name" name="name" aria-required="true" aria-describedby="nameError">
+                <span class="error-message" id="nameError" role="alert"></span>
             </div>
 
             <div class="form-group">
                 <label for="email">E-poçt</label>
-                <input type="text" id="email" name="email">
-                <span class="error-message" id="emailError"></span>
+                <input type="text" id="email" name="email" aria-required="true" aria-describedby="emailError">
+                <span class="error-message" id="emailError" role="alert"></span>
             </div>
 
             <div class="form-group">
                 <label for="message">Mesaj</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-                <span class="error-message" id="messageError"></span>
+                <textarea id="message" name="message" rows="4" aria-required="true" aria-describedby="messageError"></textarea>
+                <span class="error-message" id="messageError" role="alert"></span>
             </div>
 
             <button type="submit">Göndər</button>
-            <p class="form-success" id="formSuccess">Mesajınız göndərildi!</p>
+            <!-- YENİ: role="status" - uğur mesajı çıxanda ekran oxuyucusu sakit şəkildə oxuyur -->
+            <p class="form-success" id="formSuccess" role="status">Mesajınız göndərildi!</p>
         </form>
     </section>
 

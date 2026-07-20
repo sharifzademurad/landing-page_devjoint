@@ -18,6 +18,34 @@ a {
     color: inherit;
 }
 
+/* YENİ: "Əsas məzmuna keç" linki - normalda ekrandan kənarda gizli,
+   klaviatura ilə (Tab) fokuslananda görünür */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    z-index: 100;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* YENİ: Klaviatura ilə naviqasiya edənlər üçün fokus vurğusu.
+   Yalnız klaviatura fokusunda görünür (siçan klikində görünmür). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
 ul {
     list-style: none;
 }
