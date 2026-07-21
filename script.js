@@ -1,28 +1,23 @@
-// =====================================================
-// 1) MOBİL MENYU TOGGLE
-// =====================================================
+
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
 
 if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('nav-open');
-        menuToggle.classList.toggle('active', isOpen);
+        const isOpen = mainNav.classList.toggle('header__nav--open');
+        menuToggle.classList.toggle('header__toggle--open', isOpen);
         menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
     mainNav.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-            mainNav.classList.remove('nav-open');
-            menuToggle.classList.remove('active');
+            mainNav.classList.remove('header__nav--open');
+            menuToggle.classList.remove('header__toggle--open');
             menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 }
 
-// =====================================================
-// 2) SMOOTH SCROLL
-// =====================================================
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -36,9 +31,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
 });
 
-// =====================================================
-// 3) ƏLAQƏ FORMU - SADƏ VALİDASİYA
-// =====================================================
+
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -58,55 +51,53 @@ if (contactForm) {
         e.preventDefault();
         let isValid = true;
 
-        // Ad Soyad boş olmamalıdır
+  
         if (nameInput.value.trim() === '') {
-            nameInput.classList.add('input-error');
-            nameInput.setAttribute('aria-invalid', 'true'); // YENİ: ekran oxuyucusuna sahənin səhv olduğunu bildirir
+            nameInput.classList.add('contact__input--invalid');
+            nameInput.setAttribute('aria-invalid', 'true');
             nameError.textContent = 'Ad Soyad boş buraxıla bilməz.';
-            nameError.classList.add('show');
+            nameError.classList.add('contact__error--visible');
             isValid = false;
         } else {
-            nameInput.classList.remove('input-error');
+            nameInput.classList.remove('contact__input--invalid');
             nameInput.removeAttribute('aria-invalid');
-            nameError.classList.remove('show');
+            nameError.classList.remove('contact__error--visible');
         }
 
-        // Email boş olmamalı və regex-ə uyğun olmalıdır
         if (emailInput.value.trim() === '') {
-            emailInput.classList.add('input-error');
+            emailInput.classList.add('contact__input--invalid');
             emailInput.setAttribute('aria-invalid', 'true');
             emailError.textContent = 'E-poçt boş buraxıla bilməz.';
-            emailError.classList.add('show');
+            emailError.classList.add('contact__error--visible');
             isValid = false;
         } else if (!emailRegex.test(emailInput.value.trim())) {
-            emailInput.classList.add('input-error');
+            emailInput.classList.add('contact__input--invalid');
             emailInput.setAttribute('aria-invalid', 'true');
             emailError.textContent = 'Düzgün e-poçt daxil edin.';
-            emailError.classList.add('show');
+            emailError.classList.add('contact__error--visible');
             isValid = false;
         } else {
-            emailInput.classList.remove('input-error');
+            emailInput.classList.remove('contact__input--invalid');
             emailInput.removeAttribute('aria-invalid');
-            emailError.classList.remove('show');
+            emailError.classList.remove('contact__error--visible');
         }
 
-        // Mesaj boş olmamalıdır
         if (messageInput.value.trim() === '') {
-            messageInput.classList.add('input-error');
+            messageInput.classList.add('contact__input--invalid');
             messageInput.setAttribute('aria-invalid', 'true');
             messageError.textContent = 'Mesaj boş buraxıla bilməz.';
-            messageError.classList.add('show');
+            messageError.classList.add('contact__error--visible');
             isValid = false;
         } else {
-            messageInput.classList.remove('input-error');
+            messageInput.classList.remove('contact__input--invalid');
             messageInput.removeAttribute('aria-invalid');
-            messageError.classList.remove('show');
+            messageError.classList.remove('contact__error--visible');
         }
 
-        formSuccess.classList.remove('show');
+        formSuccess.classList.remove('contact__success--visible');
 
         if (isValid) {
-            formSuccess.classList.add('show');
+            formSuccess.classList.add('contact__success--visible');
             contactForm.reset();
         }
     });

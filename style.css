@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+
     padding: 0;
 }
 
@@ -11,6 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+
 }
 
 a {
@@ -18,8 +21,6 @@ a {
     color: inherit;
 }
 
-/* YENİ: "Əsas məzmuna keç" linki - normalda ekrandan kənarda gizli,
-   klaviatura ilə (Tab) fokuslananda görünür */
 .skip-link {
     position: absolute;
     top: -50px;
@@ -36,14 +37,13 @@ a {
     top: 10px;
 }
 
-/* YENİ: Klaviatura ilə naviqasiya edənlər üçün fokus vurğusu.
-   Yalnız klaviatura fokusunda görünür (siçan klikində görünmür). */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
     outline: 3px solid #2563eb;
     outline-offset: 2px;
+    
 }
 
 ul {
@@ -58,34 +58,34 @@ header {
     padding: 20px;
 }
 
-header a {
+
+.header__link {
     font-size: 24px;
     font-weight: bold;
     color: #2563eb;
 }
 
-header nav a {
+.header__nav-link {
     transition: color 0.2s ease;
 }
 
-header nav a:hover {
+.header__nav-link:hover {
     color: #0f172a;
 }
 
-header nav ul {
+.header__nav-list {
     display: flex;
     gap: 30px;
 }
 
-/* Loqo + hamburger düyməsi bloğu */
-.header-top {
+.header__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.menu-toggle {
+.header__toggle {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -97,7 +97,7 @@ header nav ul {
     padding: 0;
 }
 
-.menu-toggle span {
+.header__toggle-bar {
     display: block;
     height: 3px;
     width: 100%;
@@ -106,31 +106,30 @@ header nav ul {
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.menu-toggle.active span:nth-child(1) {
+.header__toggle--open .header__toggle-bar:nth-child(1) {
     transform: translateY(7.5px) rotate(45deg);
 }
 
-.menu-toggle.active span:nth-child(2) {
+.header__toggle--open .header__toggle-bar:nth-child(2) {
     opacity: 0;
 }
 
-.menu-toggle.active span:nth-child(3) {
+.header__toggle--open .header__toggle-bar:nth-child(3) {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* Mobildə nav gizli, "nav-open" class-ı ilə açılır */
-header nav {
+.header__nav {
     width: 100%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
 
-header nav.nav-open {
+.header__nav--open {
     max-height: 300px;
 }
 
-header nav ul {
+.header__nav-list {
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -147,6 +146,7 @@ main {
 section {
     text-align: center;
     max-width: 600px;
+
     padding: 20px;
 }
 
@@ -175,56 +175,61 @@ section a:hover {
     background-color: #000000;
 }
 
-/* YENİ: Sadə əlaqə formu stili - digər bölmələr kimi ortalanmış konteyner */
-#contact {
+
+.contact {
     max-width: 500px;
     margin: 0 auto;
     padding: 60px 20px;
     text-align: center;
 }
 
-#contact h2 {
+.contact__title {
     font-size: 28px;
+ 
+ 
     margin-bottom: 25px;
 }
-
-#contact form {
+.contact__form {
     display: flex;
     flex-direction: column;
     gap: 14px;
     text-align: left;
 }
 
-.form-group {
+
+
+.contact__form-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.form-group input,
-.form-group textarea {
+.contact__input {
     font-family: inherit;
     padding: 8px 10px;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
 }
 
-.form-group input.input-error,
-.form-group textarea.input-error {
+
+
+.contact__input--invalid {
     border-color: #dc2626;
 }
 
-.error-message {
+.contact__error {
     display: none;
     font-size: 13px;
     color: #dc2626;
 }
 
-.error-message.show {
+.contact__error--visible {
+   
+   
     display: block;
 }
 
-#contact form button {
+.contact__button {
     background-color: #2563eb;
     color: white;
     border: none;
@@ -234,13 +239,13 @@ section a:hover {
     cursor: pointer;
 }
 
-.form-success {
+.contact__success {
     display: none;
     color: #16a34a;
     font-weight: bold;
 }
 
-.form-success.show {
+.contact__success--visible {
     display: block;
 }
 
@@ -258,7 +263,7 @@ footer {
         padding: 20px 40px;
     }
 
-    header nav a:hover {
+    .header__nav-link:hover {
         color: #2563eb;
     }
 
@@ -270,21 +275,21 @@ footer {
         font-size: 16px;
     }
 
-    .header-top {
+    .header__top {
         width: auto;
     }
 
-    .menu-toggle {
+    .header__toggle {
         display: none;
     }
 
-    header nav {
+    .header__nav {
         width: auto;
         max-height: none;
         overflow: visible;
     }
 
-    header nav ul {
+    .header__nav-list {
         flex-direction: row;
         gap: 30px;
         padding: 0;
@@ -297,6 +302,11 @@ footer {
         margin: 0 auto;
         width: 100%;
     }
+
+
+
+
+
 
     main {
         display: grid;
